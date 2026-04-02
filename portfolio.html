@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
@@ -69,7 +69,7 @@
       background: radial-gradient(circle, rgba(0,198,173,0.15) 0%, transparent 70%);
       pointer-events: none;
     }
-    .hero-inner { max-width: 760px; position: relative; z-index: 1; }
+    .hero-inner { max-width: 900px; position: relative; z-index: 1; }
     .hero-tag {
       display: inline-block;
       background: rgba(0,198,173,0.18); color: var(--teal);
@@ -90,7 +90,7 @@
     }
     .hero-desc {
       font-size: 1.05rem; color: rgba(255,255,255,0.8);
-      max-width: 560px; line-height: 1.8; margin-bottom: 2.5rem;
+      max-width: 100%; line-height: 1.8; margin-bottom: 2.5rem;
     }
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn-primary {
@@ -230,7 +230,7 @@
       font-size: clamp(1.3rem, 2.5vw, 2rem); font-weight: 800;
       color: var(--white); margin-bottom: 0.75rem; line-height: 1.2;
     }
-    .project-summary { color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.7; max-width: 600px; }
+    .project-summary { color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.7; }
     .project-meta {
       display: flex; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap;
     }
@@ -281,12 +281,13 @@
     .compare-card.tobe ul li::before { background: #16a34a; }
 
     /* Detail sections */
-    .detail-section { margin-bottom: 2rem; }
+    .detail-section { margin-bottom: calc(2rem + 20px); }
     .detail-section h4 {
       font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em;
       color: var(--text-muted); text-transform: uppercase;
-      margin-bottom: 1rem; padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
+      margin-bottom: 1rem; padding: 0.45rem 0.75rem;
+      border-bottom: 2px solid var(--border);
+      border-radius: 6px 6px 0 0;
     }
     .detail-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
     .detail-card {
@@ -295,6 +296,194 @@
     }
     .detail-card h5 { font-size: 0.88rem; font-weight: 700; margin-bottom: 0.4rem; }
     .detail-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }
+
+    /* 프로젝트 진행 배경 */
+    .bg-section { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 0; }
+    .bg-header { background: #475569; color: var(--white); font-size: 0.82rem; font-weight: 700; padding: 0.55rem 1.1rem; }
+    .bg-content { padding: 1.1rem 1.25rem; background: var(--white); }
+    .bg-content-title { font-size: 0.95rem; font-weight: 700; color: var(--text, #1e293b); margin: 0 0 0.65rem; }
+    .bg-content ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.45rem; }
+    .bg-content ul li { font-size: 0.83rem; color: var(--text-muted); line-height: 1.55; padding-left: 0.9rem; position: relative; }
+    .bg-content ul li::before { content: '•'; position: absolute; left: 0; color: #94a3b8; }
+    .bg-arrows { display: flex; justify-content: space-around; padding: 0.5rem 0; }
+    .bg-arrow { font-size: 1.4rem; color: #475569; }
+    .bg-problems { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); }
+    .bg-problem-card { border-right: 1px solid var(--border); }
+    .bg-problem-card:last-child { border-right: none; }
+    .bg-highlight { margin: 0.75rem 1.25rem 1.1rem; background: #ede9fe; border: 1.5px solid #c4b5fd; border-radius: 8px; padding: 0.55rem 1rem; font-size: 0.83rem; font-weight: 700; color: #5b21b6; text-align: center; }
+    .bg-summary { background: linear-gradient(135deg, #e0e7ff 0%, #ede9fe 100%); padding: 0.85rem 1.5rem; display: flex; align-items: center; gap: 0.75rem; border-top: 1px solid #c7d2fe; }
+    .bg-summary-icon { font-size: 1.4rem; }
+    .bg-summary-text { font-size: 0.85rem; font-weight: 600; color: #3730a3; line-height: 1.6; }
+
+    /* ── PROJECT THEME VARIABLES ── */
+    .project-body {
+      --t-primary: #2d4a6b; --t-dark: #1b2d42; --t-mid: #5a7d9a;
+      --t-light: #e8edf3;   --t-border: #93afc4; --t-text: #1b2d42;
+      --t-grad: linear-gradient(135deg, #cdd9e4 0%, #e8edf3 100%);
+    }
+    .project-body.theme-p2 {
+      --t-primary: #5b21b6; --t-dark: #2d1b69; --t-mid: #8b5cf6;
+      --t-light: #f3f0ff;   --t-border: #c4b5fd; --t-text: #3b0764;
+      --t-grad: linear-gradient(135deg, #ddd6fe 0%, #f3f0ff 100%);
+    }
+    .project-body.theme-p3 {
+      --t-primary: #0d5673; --t-dark: #0c3547; --t-mid: #2a9db5;
+      --t-light: #e0f4f9;   --t-border: #7ecbda; --t-text: #064e63;
+      --t-grad: linear-gradient(135deg, #b3e5ef 0%, #e0f4f9 100%);
+    }
+    .project-body .detail-section > h4 { border-bottom-color: var(--t-border); background: linear-gradient(to right, var(--t-light), color-mix(in srgb, var(--t-light) 50%, transparent)); }
+    .project-body .section-toggle { border-bottom-color: var(--t-border); background: linear-gradient(to right, var(--t-light), color-mix(in srgb, var(--t-light) 50%, transparent)); border-radius: 6px 6px 0 0; padding: 0.45rem 0.75rem; }
+    .project-body .axis-label.bg,
+    .project-body .axis-label.str,
+    .project-body .axis-label.sol,
+    .project-body .axis-label.prob { background: var(--t-light); color: var(--t-dark); border-left-color: var(--t-primary); }
+    .project-body .problem-insight { background: var(--t-light); border: 1.5px solid var(--t-border); border-left: 4px solid var(--t-primary); color: var(--t-text); }
+    .project-body .highlight-box { background: var(--t-light); border: 1.5px solid var(--t-border); border-left: 4px solid var(--t-mid); }
+    .project-body .cause-result { color: var(--t-primary); }
+    .project-body .strat-badge.gray,
+    .project-body .strat-badge.purple { background: var(--t-dark); }
+    .project-body .bg-header { background: var(--t-dark); }
+    .project-body .bg-highlight { background: var(--t-light); border-color: var(--t-border); color: var(--t-text); }
+    .project-body .bg-highlight b { color: var(--t-primary); }
+    .project-body .bg-summary { background: var(--t-grad); border-color: var(--t-border); }
+    .project-body .bg-summary-text { color: var(--t-text); }
+    .project-body .goal-badge { background: var(--t-light); border-color: var(--t-border); color: var(--t-primary); }
+    .project-body .goal-card-top { border-bottom-color: var(--t-border); }
+    .project-body .goal-effect { background: var(--t-light); border-color: var(--t-border); color: var(--t-text); }
+    .project-body .goal-effect b { color: var(--t-primary); }
+    .project-body .goal-summary { background: var(--t-grad); }
+    .project-body .goal-summary-list li { color: var(--t-text); }
+    .project-body .result-kpi-number { color: var(--t-dark); }
+    .project-body .perf-bar.prev-month { background: var(--t-border); }
+    .project-body .perf-bar.after { background: linear-gradient(180deg, var(--t-dark) 0%, var(--t-mid) 100%); }
+    .project-body .perf-summary { background: var(--t-grad); border-color: var(--t-border); }
+    .project-body .perf-summary ul li { color: var(--t-text); }
+    .project-body .need-card { background: var(--t-light); border-color: var(--t-border); }
+    .project-body .need-label,
+    .project-body .need-tag { color: var(--t-primary); }
+    .project-body .ux-compare-table thead th { background: var(--t-dark); }
+
+    /* 개편 방향 및 목표 */
+    .goal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 1.25rem; }
+    .goal-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.25rem 1rem; display: flex; flex-direction: column; }
+    .goal-card-top { border-bottom: 2px solid #c4b5fd; padding-bottom: 0.85rem; margin-bottom: 0.85rem; }
+    .goal-badge { display: inline-block; background: #f3f0ff; border: 1px solid #c4b5fd; color: #5b21b6; font-size: 0.76rem; font-weight: 700; padding: 0.2rem 0.65rem; border-radius: 5px; margin-bottom: 0.55rem; }
+    .goal-card-title { font-size: 1.05rem; font-weight: 800; color: var(--text); line-height: 1.3; margin: 0; }
+    .goal-card ul { list-style: none; padding: 0; margin: 0 0 1rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+    .goal-card ul li { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; padding-left: 0.85rem; position: relative; }
+    .goal-card ul li::before { content: '•'; position: absolute; left: 0; color: #94a3b8; }
+    .goal-effect { background: #f3f0ff; border: 1px solid #c4b5fd; border-radius: 7px; padding: 0.5rem 0.85rem; font-size: 0.81rem; color: #3b0764; }
+    .goal-effect b { color: #5b21b6; }
+    .goal-summary { background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); border-radius: 12px; padding: 1.1rem 1.5rem; display: flex; gap: 1rem; align-items: center; }
+    .goal-summary-icon { font-size: 2rem; flex-shrink: 0; }
+    .goal-summary-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .goal-summary-list li { font-size: 0.88rem; color: #3b0764; line-height: 1.55; }
+    .goal-summary-list li b { font-weight: 800; display: block; }
+
+    /* UX 개편 비교 table */
+    .ux-compare-table { width: 100%; border-collapse: collapse; border: 1px solid var(--border); border-bottom: none; border-radius: 10px; overflow: hidden; }
+    .ux-compare-table tbody tr:last-child td { border-bottom: 1px solid var(--border); }
+    .ux-compare-table thead th { background: #475569; color: var(--white); font-size: 0.85rem; font-weight: 700; padding: 0.75rem 1.1rem; text-align: center; }
+    .ux-compare-table thead th:not(:last-child) { border-right: 1px solid #64748b; }
+    .ux-compare-table tbody tr { border-top: 1px solid var(--border); }
+    .ux-compare-table tbody td { padding: 1rem 1.25rem; vertical-align: top; font-size: 0.85rem; line-height: 1.6; }
+    .ux-compare-table tbody td:not(:last-child) { border-right: 1px solid var(--border); }
+    .ux-compare-table tbody td:nth-child(3) { text-align: center; vertical-align: middle; font-size: 0.83rem; font-weight: 700; color: var(--text); white-space: nowrap; }
+    .ux-cell-title { font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+    .ux-cell-result { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* Performance chart */
+    .perf-note { text-align: right; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.85rem; }
+    .perf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 1.25rem; }
+    .perf-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.25rem 1rem; }
+    .perf-card-title { font-size: 0.88rem; font-weight: 700; color: var(--text); margin-bottom: 1.1rem; }
+    .perf-chart { display: flex; align-items: flex-end; justify-content: center; gap: 1.5rem; height: 110px; margin-bottom: 0.65rem; }
+    .perf-bar { width: 36px; border-radius: 4px 4px 0 0; }
+    .perf-bar.prev-year { background: #e2e8f0; }
+    .perf-bar.prev-month { background: #c4b5fd; }
+    .perf-bar.after { background: linear-gradient(180deg, #6d28d9 0%, #a78bfa 100%); }
+    .perf-legend { display: flex; justify-content: center; gap: 0.85rem; margin-bottom: 0.9rem; }
+    .perf-legend-item { display: flex; align-items: center; gap: 0.3rem; font-size: 0.73rem; color: var(--text-muted); }
+    .perf-legend-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .perf-result { background: var(--gray-bg); border: 1px solid var(--border); border-radius: 8px; padding: 0.65rem 0.75rem; text-align: center; }
+    .perf-result p { font-size: 0.83rem; color: var(--text); line-height: 1.75; margin: 0; }
+    .perf-summary { background: linear-gradient(135deg, #e0e7ff 0%, #ede9fe 100%); border: 1px solid #c4b5fd; border-radius: 10px; padding: 1rem 1.5rem; display: flex; gap: 0.85rem; align-items: flex-start; }
+    .perf-summary-icon { font-size: 1.5rem; padding-top: 0.1rem; }
+    .perf-summary ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.35rem; }
+    .perf-summary ul li { font-size: 0.83rem; color: #3730a3; line-height: 1.6; padding-left: 0.9rem; position: relative; }
+    .perf-summary ul li::before { content: '•'; position: absolute; left: 0; }
+
+    /* Strategy table (AS-IS → 전략축 → TO-BE) */
+    .strat-wrapper { display: flex; flex-direction: column; gap: 0; }
+    .strat-col-headers { display: grid; grid-template-columns: 1fr 28px 1fr 28px 1fr; gap: 0; margin-bottom: 1rem; }
+    .strat-col-head { text-align: center; font-size: 0.82rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 0.5rem; border-bottom: 1.5px solid var(--border); }
+    .strat-col-head.mid { color: var(--text); }
+    .strat-group { margin-bottom: 1.25rem; }
+    .strat-group-headers { display: grid; grid-template-columns: 1fr 28px 1fr 28px 1fr; gap: 0; margin-bottom: 0.6rem; }
+    .strat-badge { display: inline-block; font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.75rem; border-radius: 6px; }
+    .strat-badge.gray { background: #475569; color: var(--white); }
+    .strat-badge.purple { background: #6d28d9; color: var(--white); }
+    .strat-item-row { display: grid; grid-template-columns: 1fr 28px 1fr 28px 1fr; align-items: center; gap: 0; margin-bottom: 0.5rem; }
+    .strat-arrow { text-align: center; color: #94a3b8; font-size: 1rem; }
+    .strat-cell { border-radius: 8px; padding: 0.7rem 0.9rem; }
+    .strat-cell.asis { background: #f8fafc; border: 1px solid #e2e8f0; }
+    .strat-cell.axis { background: #f1f5f9; border: 1px solid #cbd5e1; }
+    .strat-cell.tobe { background: #ede9fe; border: 1px solid #c4b5fd; }
+    .strat-title { font-size: 0.85rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+    .strat-desc { font-size: 0.79rem; color: var(--text-muted); line-height: 1.5; margin: 0; }
+
+    /* Section toggle (페르소나 등 섹션 아코디언) */
+    .section-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; background: none; border: none; border-bottom: 2px solid var(--border); padding: 0 0 0.6rem; margin-bottom: 1rem; cursor: pointer; }
+    .section-toggle-title { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; }
+    .section-toggle svg { width: 18px; height: 18px; stroke: var(--text-muted); stroke-width: 2; fill: none; flex-shrink: 0; transition: transform 0.3s; }
+    .section-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+    .section-panel { max-height: 0; overflow: hidden; transition: max-height 0.45s ease; }
+    .section-panel.open { max-height: 2000px; }
+
+    /* Persona layout */
+    .persona-grid { display: grid; grid-template-columns: 200px 1fr 1fr; gap: 1.25rem; }
+    .persona-profile-card { background: var(--navy2); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+    .persona-photo { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+    .persona-photo-placeholder { width: 100%; aspect-ratio: 4/3; background: #1e3a5f; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+    .persona-profile-info { padding: 0.9rem 1rem; flex: 1; }
+    .persona-name { font-size: 0.98rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+    .persona-meta { font-size: 0.78rem; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 0.75rem; }
+    .persona-quote { font-size: 0.78rem; color: rgba(255,255,255,0.8); line-height: 1.65; border-left: 2px solid #00c6ad; padding-left: 0.6rem; font-style: italic; }
+    .persona-main { display: flex; flex-direction: column; gap: 0.85rem; }
+    .persona-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1.1rem; }
+    .persona-card-title { font-size: 0.82rem; font-weight: 700; color: var(--text); margin-bottom: 0.6rem; }
+    .persona-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.35rem; }
+    .persona-card ul li { font-size: 0.81rem; color: var(--text-muted); line-height: 1.55; padding-left: 0.85rem; position: relative; }
+    .persona-card ul li::before { content: '•'; position: absolute; left: 0; color: #94a3b8; }
+    .behavior-row { display: flex; gap: 0.5rem; align-items: baseline; margin-bottom: 0.35rem; font-size: 0.81rem; }
+    .behavior-row:last-child { margin-bottom: 0; }
+    .behavior-label { font-weight: 700; color: var(--text); white-space: nowrap; min-width: 85px; }
+    .behavior-val { color: var(--text-muted); line-height: 1.5; }
+    .keyword-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .keyword-tag { background: var(--gray-bg); border: 1px solid var(--border); border-radius: 20px; padding: 0.25rem 0.7rem; font-size: 0.78rem; color: var(--text); font-weight: 500; }
+    .persona-pain-needs { display: flex; flex-direction: column; gap: 0.7rem; }
+    .pain-need-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+    .pain-card { background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 8px; padding: 0.7rem 0.85rem; }
+    .need-card { background: #ede9fe; border: 1px solid #c4b5fd; border-radius: 8px; padding: 0.7rem 0.85rem; }
+    .pain-label { font-size: 0.74rem; font-weight: 700; color: #64748b; margin-bottom: 0.35rem; }
+    .need-label { font-size: 0.74rem; font-weight: 700; color: #6d28d9; margin-bottom: 0.35rem; }
+    .pain-card p, .need-card p { font-size: 0.8rem; line-height: 1.55; margin: 0; color: var(--text); }
+    .need-tag { font-size: 0.75rem; font-weight: 600; color: #5b21b6; margin-top: 0.35rem; }
+
+    /* Result card grid */
+    .result-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .result-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; }
+    .result-card-kpi { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    .result-card-icon { width: 52px; height: 52px; border-radius: 10px; background: var(--gray-bg); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+    .result-kpi-number { font-size: 1.55rem; font-weight: 800; color: var(--navy); line-height: 1.2; }
+    .result-kpi-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem; }
+    .result-card-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 1rem; }
+    .result-card-title { font-size: 0.92rem; font-weight: 700; color: var(--text); margin: 0 0 0.75rem; }
+    .result-card-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.65rem; flex: 1; }
+    .result-card-list li { font-size: 0.83rem; color: var(--text); line-height: 1.55; padding-left: 0.9rem; position: relative; }
+    .result-card-list li::before { content: '•'; position: absolute; left: 0; color: var(--text-muted); }
+    .result-card-list li b { display: block; font-weight: 700; font-size: 0.85rem; }
+    .result-card-footnote { font-size: 0.75rem; color: var(--text-muted); line-height: 1.55; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border); }
 
     /* Role tags */
     .role-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
@@ -856,7 +1045,7 @@
             <div class="timeline-content">
               <div class="period">2019.12 – 2024.10</div>
               <h4>에듀윌 / 서비스기획</h4>
-              <p>이커머스 서비스 기획 · 어드민 고도화 · UX 개선</p>
+              <p>서비스 기획 · 어드민 고도화 · UX 개선</p>
             </div>
           </div>
           <div class="timeline-item">
@@ -956,7 +1145,7 @@
         <h3 class="project-title">커머스 플랫폼 재구축</h3>
         <p class="project-summary">
           영유아식 이커머스 브랜드의 고객 LTV 향상과 CS 비용 절감을 목표로,
-          FO·BO 전 과정의 서비스를 재구축했습니다.
+          FO·BO 전 과정의 서비스를 재구축했습니다.<br/>
           구독 서비스, 검색, 장바구니, 상품, 쿠폰·프로모션 등 핵심 기능을 A~Z 기획하고,
           브랜드 확장을 위한 관리자 플랫폼 재구축을 진행했습니다.
         </p>
@@ -976,7 +1165,7 @@
         </div>
       </div>
 
-      <div class="project-body">
+      <div class="project-body theme-p1">
         <!-- Metrics -->
         <div class="detail-section">
           <h4>주요 성과 (예상)</h4>
@@ -996,7 +1185,6 @@
           </div>
         </div>
 
-        <div class="divider"></div>
 
         <!-- Background -->
         <div class="detail-section">
@@ -1020,7 +1208,216 @@
             </div>
           </div>
         </div>
-        <div class="divider"></div>
+
+        <!-- 서비스 재구축 전략 -->
+        <div class="detail-section">
+          <h4>서비스 재구축 전략 | AS-IS 진단과 TO-BE 전략</h4>
+            <div class="strat-wrapper">
+
+              <!-- 컬럼 헤더 -->
+              <div class="strat-col-headers">
+                <div class="strat-col-head">AS-IS</div>
+                <div></div>
+                <div class="strat-col-head mid">전략축</div>
+                <div></div>
+                <div class="strat-col-head">TO-BE</div>
+              </div>
+
+              <!-- 그룹 1: 고객 경험 -->
+              <div class="strat-group">
+                <div class="strat-group-headers">
+                  <div><span class="strat-badge gray">고객 경험</span></div>
+                  <div></div>
+                  <div><span class="strat-badge gray">고객 경험</span></div>
+                  <div></div>
+                  <div><span class="strat-badge purple">고객 경험</span></div>
+                </div>
+                <div class="strat-item-row">
+                  <div class="strat-cell asis">
+                    <p class="strat-title">구매 연속성 부족(단발성 구매)</p>
+                    <p class="strat-desc">개별 상품 중심으로 설계되어 있어 구매 연속성 부족</p>
+                  </div>
+                  <div class="strat-arrow">→</div>
+                  <div class="strat-cell axis">
+                    <p class="strat-title">구매 연속성 요소 추가</p>
+                    <p class="strat-desc">아이의 성장 여정으로 인식하게 만드는 상품 구조 설계</p>
+                  </div>
+                  <div class="strat-arrow">→</div>
+                  <div class="strat-cell tobe">
+                    <p class="strat-title">구독 서비스</p>
+                    <p class="strat-desc">식단 단계 속성에 기반한 다음 단계 자동 전환 서비스</p>
+                  </div>
+                </div>
+                <div class="strat-item-row">
+                  <div class="strat-cell asis">
+                    <p class="strat-title">개인화 불가</p>
+                    <p class="strat-desc">알러지, 식습관, 선호도 등 개별 니즈 반영이 어려운 구조</p>
+                  </div>
+                  <div class="strat-arrow">→</div>
+                  <div class="strat-cell axis">
+                    <p class="strat-title">개인화</p>
+                    <p class="strat-desc">데이터를 수집하고 이를 기반으로 식단을 추천 및 제외</p>
+                  </div>
+                  <div class="strat-arrow">→</div>
+                  <div class="strat-cell tobe">
+                    <p class="strat-title">데이터 기반 커스터마이징</p>
+                    <p class="strat-desc">알러지 식재료 필터링 기능</p>
+                  </div>
+                </div>
+                <div class="strat-item-row">
+                  <div class="strat-cell asis">
+                    <p class="strat-title">정보 탐색이 어려운 UX</p>
+                    <p class="strat-desc">서비스와 콘텐츠가 분산되어 사용자 탐색 비용이 높음</p>
+                  </div>
+                  <div class="strat-arrow">→</div>
+                  <div class="strat-cell axis">
+                    <p class="strat-title">사용자 행동 기반 UX</p>
+                    <p class="strat-desc">페이지별 목적, 사용자 기대 행동을 기준으로 전면 개편</p>
+                  </div>
+                  <div class="strat-arrow">→</div>
+                  <div class="strat-cell tobe">
+                    <p class="strat-title">직관적인 UX</p>
+                    <p class="strat-desc">검색, 메뉴, 상세페이지 등 핵심 정보 집약 및 동선 효율화</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 그룹 2: 운영 효율/확장 -->
+              <div class="strat-group">
+                <div class="strat-group-headers">
+                  <div><span class="strat-badge gray">운영 효율/확장</span></div>
+                  <div></div>
+                  <div><span class="strat-badge gray">운영 효율/확장</span></div>
+                  <div></div>
+                  <div><span class="strat-badge purple">운영 효율/확장</span></div>
+                </div>
+                <div class="strat-item-row">
+                  <div class="strat-cell asis">
+                    <p class="strat-title">비효율적 운영 구조</p>
+                    <p class="strat-desc">하드코딩 기반 관리 구조로 프론트와 실시간 연동 불가</p>
+                  </div>
+                  <div class="strat-arrow">→</div>
+                  <div class="strat-cell axis">
+                    <p class="strat-title">운영 자동화</p>
+                    <p class="strat-desc">운영 로직을 코드에서 어드민 데이터로 전환</p>
+                  </div>
+                  <div class="strat-arrow">→</div>
+                  <div class="strat-cell tobe">
+                    <p class="strat-title">모듈형 통합 백오피스</p>
+                    <p class="strat-desc">메인, 쿠폰, 프로모션, 주문, 상품 등 어드민에서 직접 제어</p>
+                  </div>
+                </div>
+                <div class="strat-item-row">
+                  <div class="strat-cell asis">
+                    <p class="strat-title">어드민 확장성 저하</p>
+                    <p class="strat-desc">현재 서비스에만 맞춰져 설계된 어드민 구조와 데이터</p>
+                  </div>
+                  <div class="strat-arrow">→</div>
+                  <div class="strat-cell axis">
+                    <p class="strat-title">구조 확장성 고려</p>
+                    <p class="strat-desc">추후 브랜드 확장 시 재사용 가능한 데이터, 메뉴 구조</p>
+                  </div>
+                  <div class="strat-arrow">→</div>
+                  <div class="strat-cell tobe">
+                    <p class="strat-title">확장성이 높은 어드민 구조</p>
+                    <p class="strat-desc">API 기반 통합 어드민 시스템 구축</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+        </div>
+
+
+        <!-- 유저 페르소나 -->
+        <div class="detail-section">
+          <button class="section-toggle" aria-expanded="false">
+            <span class="section-toggle-title">유저 페르소나</span>
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="section-panel">
+            <div class="persona-grid">
+
+              <!-- 프로필 카드 -->
+              <div class="persona-profile-card">
+                <img class="persona-photo" src="persona-photo.jpg" alt="페르소나 사진" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                <div class="persona-photo-placeholder" style="display:none;">👩</div>
+                <div class="persona-profile-info">
+                  <p class="persona-name">박지호 <span style="font-weight:400;font-size:0.85rem;">(34세)</span></p>
+                  <p class="persona-meta">스타트업 개발자 | 경기도 용인<br/>남편, 16개월 아기와 함께 거주</p>
+                  <p class="persona-quote">"일 때문에 바빠도 아이 식단만큼은 전문가가 챙긴 것처럼 완벽했으면 좋겠어요."</p>
+                </div>
+              </div>
+
+              <!-- 주요 정보 -->
+              <div class="persona-main">
+                <div class="persona-card">
+                  <p class="persona-card-title">👩 주요 인적사항</p>
+                  <ul>
+                    <li>맞벌이 부부로, 주중 아침은 두 사람 모두 출근 준비로 분주하다.</li>
+                    <li>퇴근 후나 주말엔 남편, 아이와 함께 시간을 보내며 간단히 요리를 해먹거나 배달을 시켜먹기도 한다.</li>
+                    <li>프로젝트 일정에 따라 야근이 잦은데, 최근 일정이 불규칙해 식단 준비가 어렵고 이유식 준비가 서툴러 시판 이유식을 찾는 중이다.</li>
+                  </ul>
+                </div>
+                <div class="persona-card">
+                  <p class="persona-card-title">⚡ 행동 특성</p>
+                  <div class="behavior-row"><span class="behavior-label">웹 사용 패턴</span><span class="behavior-val">출퇴근, 점심시간에 모바일로 집중 탐색</span></div>
+                  <div class="behavior-row"><span class="behavior-label">구매 의사 결정</span><span class="behavior-val">비교/검색, 리뷰나 성분 꼼꼼히 확인</span></div>
+                  <div class="behavior-row"><span class="behavior-label">선호 서비스</span><span class="behavior-val">컬리, 쿠팡 — 간편한 UX, 빠른 배송</span></div>
+                </div>
+                <div class="persona-card">
+                  <p class="persona-card-title">🔑 일상 키워드</p>
+                  <div class="keyword-tags">
+                    <span class="keyword-tag">워킹맘</span>
+                    <span class="keyword-tag">일정 불규칙</span>
+                    <span class="keyword-tag">완벽주의</span>
+                    <span class="keyword-tag">모바일 우선</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 페인포인트 → 니즈 -->
+              <div class="persona-pain-needs">
+                <p class="persona-card-title" style="margin-bottom:0.5rem;">페인포인트 → 니즈</p>
+                <div class="pain-need-pair">
+                  <div class="pain-card">
+                    <p class="pain-label">😞 페인포인트</p>
+                    <p>아이가 알러지가 있어 고정 식단 중 먹이지 못하는 메뉴가 종종 있음.</p>
+                  </div>
+                  <div class="need-card">
+                    <p class="need-label">😊 니즈</p>
+                    <p>알러지 성분 등록 후 메뉴 필터링 및 커스터마이징</p>
+                    <p class="need-tag">→ 식단플래너, 검색</p>
+                  </div>
+                </div>
+                <div class="pain-need-pair">
+                  <div class="pain-card">
+                    <p class="pain-label">😞 페인포인트</p>
+                    <p>불규칙한 일정으로 정해진 배송일에 식단 수령이 어려움.</p>
+                  </div>
+                  <div class="need-card">
+                    <p class="need-label">😊 니즈</p>
+                    <p>배송 일정을 자유롭게 변경할 수 있어야 함</p>
+                    <p class="need-tag">→ 식단플래너</p>
+                  </div>
+                </div>
+                <div class="pain-need-pair">
+                  <div class="pain-card">
+                    <p class="pain-label">😞 페인포인트</p>
+                    <p>언제 이유식 다음 단계로 넘어가야 하는지 헷갈림</p>
+                  </div>
+                  <div class="need-card">
+                    <p class="need-label">😊 니즈</p>
+                    <p>아이 성장 단계에 따라 식단 자동 추천 및 전환</p>
+                    <p class="need-tag">→ 구독서비스, 식단플래너</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
 
         <!-- Key Features -->
         <div class="detail-section">
@@ -1054,23 +1451,21 @@
                 </div>
                 <div class="feature-axis">
                   <div class="axis-label str">🎯 해결 방향</div>
-                  <ul class="solution-list">
-                    <li class="solution-item">
-                      <span class="solution-title">사용자 인식 전환 설계</span>
-                      <span class="solution-desc">구독 시 다음 단계 식단 안내 및 식단 단계에 따른 아동 발달 과정까지 구체적으로 안내</span>
-                      <span class="solution-result">→ 식단을 '여정'으로 인식하도록 리프레이밍</span>
-                    </li>
-                    <li class="solution-item">
-                      <span class="solution-title">구독 유지 혜택 설계</span>
-                      <span class="solution-desc">'다음 단계 맛보기', '구독 전용상품' 등 혜택 설계</span>
-                      <span class="solution-result">→ 서비스 이용 동기 제공</span>
-                    </li>
-                    <li class="solution-item">
-                      <span class="solution-title">구독 결제 프로세스</span>
-                      <span class="solution-desc">빌링키 기반 자동 결제 프로세스 설계</span>
-                      <span class="solution-result">→ 단계 전환 및 결제 자동 지원</span>
-                    </li>
-                  </ul>
+                  <div class="cause-block">
+                    <p class="cause-title"><b>사용자 인식 전환 설계</b></p>
+                    <p class="cause-sub">구독 시 다음 단계 식단 안내 및 식단 단계에 따른 아동 발달 과정까지 구체적으로 안내</p>
+                    <p class="cause-result">→ 식단을 '여정'으로 인식하도록 리프레이밍</p>
+                  </div>
+                  <div class="cause-block">
+                    <p class="cause-title"><b>구독 유지 혜택 설계</b></p>
+                    <p class="cause-sub">'다음 단계 맛보기', '구독 전용상품' 등 혜택 설계</p>
+                    <p class="cause-result">→ 서비스 이용 동기 제공</p>
+                  </div>
+                  <div class="cause-block">
+                    <p class="cause-title"><b>구독 결제 프로세스</b></p>
+                    <p class="cause-sub">빌링키 기반 자동 결제 프로세스 설계</p>
+                    <p class="cause-result">→ 단계 전환 및 결제 자동 지원</p>
+                  </div>
                 </div>
                 <div class="feature-axis">
                   <div class="axis-label sol">✅ 기대 효과</div>
@@ -1469,9 +1864,14 @@
           <span class="role-tag">TC 작성</span>
         </div>
 
+
         <!-- 산출물 이미지 갤러리 -->
         <div class="detail-section" style="margin-top:2rem;">
-          <h4>산출물</h4>
+          <button class="section-toggle" aria-expanded="false">
+            <span class="section-toggle-title">산출물</span>
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="section-panel">
           <div class="output-gallery">
             <div class="gallery-item" onclick="openLightbox(this)">
               <img src="images/p1-1.jpg" alt="화면설계서" loading="lazy" onerror="this.parentElement.classList.add('no-img')" />
@@ -1493,6 +1893,11 @@
               <img src="images/p1-5.jpg" alt="TC작성" loading="lazy" onerror="this.parentElement.classList.add('no-img')" />
               <div class="gallery-caption">TC작성</div>
             </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+              <img src="images/p1-6.jpg" alt="FO 화면" loading="lazy" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="gallery-caption">FO화면</div>
+            </div>
+          </div>
           </div>
         </div>
       </div>
@@ -1509,8 +1914,8 @@
         <div class="project-num">Project 02</div>
         <h3 class="project-title">어드민 고도화<br/>— 프로모션 페이지 자동화</h3>
         <p class="project-summary">
-          연 1,084건의 프로모션을 매번 하드코딩으로 처리하던 구조를,
-          어드민 단일 메뉴에서 자동화 운영할 수 있도록 시스템화했습니다.
+          연 평균 1,084건의 프로모션을 매번 하드코딩으로 처리하던 구조를,
+          어드민 단일 메뉴에서 자동화 운영할 수 있도록 시스템화했습니다.<br/>
           연 2.17억원의 개발 비용을 절감하고 일정 리스크를 90% 이상 해소했습니다.
         </p>
         <div class="project-meta">
@@ -1529,7 +1934,7 @@
         </div>
       </div>
 
-      <div class="project-body">
+      <div class="project-body theme-p2">
         <!-- Metrics -->
         <div class="detail-section">
           <h4>주요 성과</h4>
@@ -1553,7 +1958,67 @@
           </div>
         </div>
 
-        <div class="divider"></div>
+
+
+        <!-- 프로젝트 진행 배경 -->
+        <div class="detail-section">
+          <h4>프로젝트 진행 배경</h4>
+          <div class="bg-section">
+
+            <!-- 구조적 원인 -->
+            <div class="bg-header">구조적 원인</div>
+            <div class="bg-content">
+              <p class="bg-content-title">기능 분산 & 하드코딩</p>
+              <ul>
+                <li>프로모션 구성에 필요한 조건, 제공 혜택, 노출 요소 등이 여러 메뉴에 분산되어 있어 각각 요건 등록 후 개발자에게 전달하는 구조</li>
+                <li>각각의 개별 요건을 기획자가 확인해 등록 → 디자인 작업 진행 → 개발자가 하드코딩으로 작업</li>
+              </ul>
+            </div>
+
+            <!-- 화살표 -->
+            <div class="bg-arrows">
+              <span class="bg-arrow">↓</span>
+              <span class="bg-arrow">↓</span>
+            </div>
+
+            <!-- 문제 1 & 2 -->
+            <div class="bg-problems">
+              <div class="bg-problem-card">
+                <div class="bg-header">문제 1</div>
+                <div class="bg-content">
+                  <p class="bg-content-title">반복 작업 공수 과다</p>
+                  <ul>
+                    <li>연 평균 1,084건의 프로모션 제작 시 오픈마다 운영, 기획, 디자인, 개발 공수가 순차적으로 발생</li>
+                    <li>각각의 개별 요건을 하드코딩으로 작업</li>
+                  </ul>
+                </div>
+                <div class="bg-highlight">건별 기획 0.5 M/D + 개발 1.5M/D 소요</div>
+              </div>
+              <div class="bg-problem-card">
+                <div class="bg-header">문제 2</div>
+                <div class="bg-content">
+                  <p class="bg-content-title">일정 리스크 가능성 높음</p>
+                  <ul>
+                    <li>작업의 순차적인 구조로 요건 전달 지연 시 전체 작업 지연되어 오픈일자 연기 필요</li>
+                    <li>수정 이슈 발생 시 추가 개발 작업 필요</li>
+                  </ul>
+                </div>
+                <div class="bg-highlight">오픈일 변경 연 평균 32%(346건)</div>
+              </div>
+            </div>
+
+            <!-- 요약 -->
+            <div class="bg-summary">
+              <span class="bg-summary-icon">💡</span>
+              <p class="bg-summary-text">
+                1. 프로모션의 구조화가 되어있지 않음<br/>
+                2. 하드코딩 작업으로 빠른 프로모션 대응이 어려움
+              </p>
+            </div>
+
+          </div>
+        </div>
+
 
         <!-- AS-IS / TO-BE -->
         <div class="detail-section">
@@ -1580,27 +2045,78 @@
           </div>
         </div>
 
-        <div class="divider"></div>
 
         <div class="detail-section">
-          <h4>기대 효과 상세</h4>
-          <div class="detail-cards">
-            <div class="detail-card">
-              <h5>💰 개발 비용 절감</h5>
-              <p>프로모션당 개발 투입 시간 1~1.5MD 단축 → 약 51.62MM 단축. 연 2.17억원 절감 (1,084건 × 1MD × 약 20만원 기준).</p>
+          <h4>성과</h4>
+          <div class="result-card-grid">
+
+            <!-- 카드 1 -->
+            <div class="result-card">
+              <div class="result-card-kpi">
+                <div class="result-card-icon">💰</div>
+                <div>
+                  <div class="result-kpi-number">2.17억원</div>
+                  <div class="result-kpi-label">연간 비용 절감</div>
+                </div>
+              </div>
+              <hr class="result-card-divider"/>
+              <p class="result-card-title">작업 공수 개선 및 비용 절감</p>
+              <ul class="result-card-list">
+                <li>
+                  <b>개발 공수</b>
+                  프로모션당 개발 투입 시간 1~1.5MD 단축 → 약 51.62MM 단축. 연 2.17억원 절감
+                </li>
+                <li>
+                  <b>기획 공수</b>
+                  전체 프로모션 중 70% 이상 기획 투입 감소 → 약 18.06MM 단축
+                </li>
+              </ul>
+              <p class="result-card-footnote">*산출 근거<br/>1,084(3년 평균) × 1MD 단축 × 외주 개발자 일 계약 단가 20만원</p>
             </div>
-            <div class="detail-card">
-              <h5>⏱ 기획 공수 절감</h5>
-              <p>전체 프로모션 중 70% 이상 기획 투입 감소 → 약 18.06MM 단축.</p>
+
+            <!-- 카드 2 -->
+            <div class="result-card">
+              <div class="result-card-kpi">
+                <div class="result-card-icon">📅</div>
+                <div>
+                  <div class="result-kpi-number">90% 감소</div>
+                  <div class="result-kpi-label">일정 리스크 감소</div>
+                </div>
+              </div>
+              <hr class="result-card-divider"/>
+              <p class="result-card-title">운영 자립화 및 일정 리스크 감소</p>
+              <ul class="result-card-list">
+                <li>
+                  <b>요건 확립 전 개발 선착수 가능</b>
+                  일정 변경 리스크 90% 이상 감소
+                </li>
+                <li>
+                  <b>운영 자립화</b>
+                  프로모션 성격이 '개발 과제'에서 '운영 과제'로 전환되어, 프로모션 대응 속도 향상
+                </li>
+              </ul>
+              <p class="result-card-footnote">*산출 근거<br/>2023년 일정 변경 요청건 346건 중 요건 미확립 건으로 변경된 이벤트 건수 312건(90.17%) 기준</p>
             </div>
-            <div class="detail-card">
-              <h5>📅 일정 리스크 제거</h5>
-              <p>요건 확립 전 개발 선착수 가능. 일정 변경 리스크 90% 이상 감소.</p>
+
+            <!-- 카드 3 -->
+            <div class="result-card">
+              <div class="result-card-kpi">
+                <div class="result-card-icon">🚀</div>
+                <div>
+                  <div class="result-kpi-number">N+</div>
+                  <div class="result-kpi-label">신규 프로모션 확장 가능</div>
+                </div>
+              </div>
+              <hr class="result-card-divider"/>
+              <p class="result-card-title">프로모션 확장성 확보</p>
+              <ul class="result-card-list">
+                <li>
+                  <b>신규 프로모션 유형 자체 대응 가능</b>
+                  타겟 세분화, 혜택 다양화 등 다양한 기능을 추가하여 다양한 프로모션 유형 자체 대응 가능
+                </li>
+              </ul>
             </div>
-            <div class="detail-card">
-              <h5>🚀 운영 자립화</h5>
-              <p>신규 프로모션 유형 자체 대응. 타겟 세분화·혜택 다양화 등 다양한 유형 독립 운영 가능.</p>
-            </div>
+
           </div>
         </div>
 
@@ -1609,6 +2125,26 @@
           <span class="role-tag">BO 기획</span>
           <span class="role-tag">Wireframe</span>
           <span class="role-tag">JIRA 일정 관리</span>
+        </div>
+
+        <!-- 산출물 이미지 갤러리 -->
+        <div class="detail-section" style="margin-top:2rem;">
+          <button class="section-toggle" aria-expanded="false">
+            <span class="section-toggle-title">산출물</span>
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="section-panel">
+            <div class="output-gallery">
+              <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/p2-1.jpg" alt="화면설계서" loading="lazy" onerror="this.parentElement.classList.add('no-img')" />
+                <div class="gallery-caption">화면설계서</div>
+              </div>
+              <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/p2-2.jpg" alt="플로우차트" loading="lazy" onerror="this.parentElement.classList.add('no-img')" />
+                <div class="gallery-caption">플로우차트</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1639,7 +2175,7 @@
         </div>
       </div>
 
-      <div class="project-body">
+      <div class="project-body theme-p3">
         <!-- Metrics -->
         <div class="detail-section">
           <h4>주요 성과</h4>
@@ -1659,7 +2195,6 @@
           </div>
         </div>
 
-        <div class="divider"></div>
 
         <!-- Problems -->
         <div class="detail-section">
@@ -1684,7 +2219,54 @@
           </div>
         </div>
 
-        <div class="divider"></div>
+
+        <!-- 개편 방향 및 목표 -->
+        <div class="detail-section">
+          <h4>개편 방향 및 목표</h4>
+          <div class="goal-grid">
+            <div class="goal-card">
+              <div class="goal-card-top">
+                <div class="goal-badge">문제 1, 2 해결</div>
+                <p class="goal-card-title">매출원 노출 확대</p>
+              </div>
+              <ul>
+                <li>Average Fold(991px) 상단 주력 상품 및 콘텐츠 배치</li>
+                <li>콘텐츠 게시물에 연관 상품 연동</li>
+              </ul>
+              <div class="goal-effect">기대효과: <b>전환율 향상</b></div>
+            </div>
+            <div class="goal-card">
+              <div class="goal-card-top">
+                <div class="goal-badge">문제 2,3 해결</div>
+                <p class="goal-card-title">사용성 높인 UX 설계</p>
+              </div>
+              <ul>
+                <li>GA4, 뷰저블 행동 데이터 기반 콘텐츠 재배치</li>
+                <li>유형별 콘텐츠 그룹핑으로 인지 부하 감소</li>
+              </ul>
+              <div class="goal-effect">기대효과: <b>체류시간 및 PV 개선</b></div>
+            </div>
+            <div class="goal-card">
+              <div class="goal-card-top">
+                <div class="goal-badge">문제 4 해결</div>
+                <p class="goal-card-title">어드민 연동으로 운영 효율성 강화</p>
+              </div>
+              <ul>
+                <li>반복 운영 영역 어드민 연동으로 운영 효율성 향상</li>
+                <li>디자인/개발 의존 없이 콘텐츠 수정 가능</li>
+              </ul>
+              <div class="goal-effect">기대효과: <b>운영공수 감소 및 효율성 강화</b></div>
+            </div>
+          </div>
+          <div class="goal-summary">
+            <span class="goal-summary-icon">💡</span>
+            <ol class="goal-summary-list">
+              <li><b>유효 지표 개선</b>PV, 평균 체류시간, 전환율을 메인 아이템 수준으로 향상</li>
+              <li><b>운영 효율성 강화</b>디자인, 개발 의존도 최소화</li>
+            </ol>
+          </div>
+        </div>
+
 
         <!-- Solutions -->
         <div class="detail-section">
@@ -1711,21 +2293,141 @@
           </div>
         </div>
 
+        <!-- UX 개편 비교 -->
         <div class="detail-section">
-          <h4>성과 해석</h4>
-          <div class="detail-cards">
-            <div class="detail-card">
-              <h5>📄 PV 131.2% 향상</h5>
-              <p>방문자당 페이지뷰 수 증가로 사용자에게 유의미한 콘텐츠가 효과적으로 배치되었음을 확인.</p>
+          <button class="section-toggle" aria-expanded="false">
+            <span class="section-toggle-title">UX 개편 상세 비교</span>
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="section-panel">
+            <table class="ux-compare-table">
+              <thead>
+                <tr>
+                  <th style="width:38%;">AS-IS</th>
+                  <th style="width:38%;">TO-BE</th>
+                  <th style="width:24%;">해결 문제</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <p class="ux-cell-title">주목도 높은 최상단에 상품 배치 미비</p>
+                    <p class="ux-cell-result">→ Average Fold 이전 이탈율 53%</p>
+                  </td>
+                  <td>
+                    <p class="ux-cell-title">어레인지 방식 변경으로 최상단에 다양한 상품 노출</p>
+                    <p class="ux-cell-result">→ Average Fold 이전 이탈율 25% 미만으로 감소</p>
+                  </td>
+                  <td>문제 1,2 해결</td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="ux-cell-title">성격이 다른 콘텐츠 혼재</p>
+                    <p class="ux-cell-result">→ 복잡한 이동 동선, 무효 클릭 다수 발생</p>
+                  </td>
+                  <td>
+                    <p class="ux-cell-title">IA 재구성 및 콘텐츠 유형별 그룹핑</p>
+                    <p class="ux-cell-result">→ 동선 최적화 및 무효 클릭 발생율 88%p 감소</p>
+                  </td>
+                  <td>문제 3 해결</td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="ux-cell-title">최고가 상품 2개만 노출</p>
+                    <p class="ux-cell-result">→ 다양한 상품 탐색 불가 및 이탈율 상승</p>
+                  </td>
+                  <td>
+                    <p class="ux-cell-title">상품 노출 구좌 확대 및 콘텐츠와 상품 연동</p>
+                    <p class="ux-cell-result">→ 이탈율, 체류시간, 전환율 모두 증가</p>
+                  </td>
+                  <td>문제 1,2,3 해결</td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="ux-cell-title">사이트 중단 영역에 브랜드 콘텐츠 분산 배치</p>
+                    <p class="ux-cell-result">→ 주요 콘텐츠 집중 하락, 이탈율 상승</p>
+                  </td>
+                  <td>
+                    <p class="ux-cell-title">타겟 유저 관심 콘텐츠 우선 배치</p>
+                    <p class="ux-cell-result">→ 상품 주목도 및 클릭율 상승, 전환율 증가</p>
+                  </td>
+                  <td>문제 2, 3 해결</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+        <div class="detail-section">
+          <h4>개편 성과</h4>
+          <p class="perf-note">* 개편완료 후 한달 간의 데이터와 전년도 동월, 전월 데이터 비교</p>
+          <div class="perf-grid">
+
+            <!-- 방문자당 페이지뷰 수 -->
+            <div class="perf-card">
+              <p class="perf-card-title">방문자당 페이지뷰 수</p>
+              <div class="perf-chart">
+                <div class="perf-bar prev-year"  style="height:48px;"></div>
+                <div class="perf-bar prev-month" style="height:63px;"></div>
+                <div class="perf-bar after"      style="height:110px;"></div>
+              </div>
+              <div class="perf-legend">
+                <span class="perf-legend-item"><span class="perf-legend-dot" style="background:#e2e8f0;border:1px solid #cbd5e1;"></span>전년</span>
+                <span class="perf-legend-item"><span class="perf-legend-dot" style="background:var(--t-border);"></span>전월</span>
+                <span class="perf-legend-item"><span class="perf-legend-dot" style="background:var(--t-primary);"></span>개편 이후</span>
+              </div>
+              <div class="perf-result">
+                <p>전년 대비 <b>131.2% 증가</b><br/>전월 대비 <b>76.2% 증가</b></p>
+              </div>
             </div>
-            <div class="detail-card">
-              <h5>⏱ 체류시간 170% 향상</h5>
-              <p>평균 체류시간 증가로 사용자에게 흥미로운 콘텐츠가 늘었음을 추측할 수 있음.</p>
+
+            <!-- 평균 체류 시간 -->
+            <div class="perf-card">
+              <p class="perf-card-title">평균 체류 시간</p>
+              <div class="perf-chart">
+                <div class="perf-bar prev-year"  style="height:41px;"></div>
+                <div class="perf-bar prev-month" style="height:43px;"></div>
+                <div class="perf-bar after"      style="height:110px;"></div>
+              </div>
+              <div class="perf-legend">
+                <span class="perf-legend-item"><span class="perf-legend-dot" style="background:#e2e8f0;border:1px solid #cbd5e1;"></span>전년</span>
+                <span class="perf-legend-item"><span class="perf-legend-dot" style="background:var(--t-border);"></span>전월</span>
+                <span class="perf-legend-item"><span class="perf-legend-dot" style="background:var(--t-primary);"></span>개편 이후</span>
+              </div>
+              <div class="perf-result">
+                <p>전년 대비 <b>170% 증가</b><br/>전월 대비 <b>154.8% 증가</b></p>
+              </div>
             </div>
-            <div class="detail-card">
-              <h5>💳 전환율 18.7% 향상</h5>
-              <p>전환율 증가로 사이트 내 상품 노출이 효과적으로 진행된 것을 확인.</p>
+
+            <!-- 전환율 -->
+            <div class="perf-card">
+              <p class="perf-card-title">전환율</p>
+              <div class="perf-chart">
+                <div class="perf-bar prev-year"  style="height:93px;"></div>
+                <div class="perf-bar prev-month" style="height:91px;"></div>
+                <div class="perf-bar after"      style="height:110px;"></div>
+              </div>
+              <div class="perf-legend">
+                <span class="perf-legend-item"><span class="perf-legend-dot" style="background:#e2e8f0;border:1px solid #cbd5e1;"></span>전년</span>
+                <span class="perf-legend-item"><span class="perf-legend-dot" style="background:var(--t-border);"></span>전월</span>
+                <span class="perf-legend-item"><span class="perf-legend-dot" style="background:var(--t-primary);"></span>개편 이후</span>
+              </div>
+              <div class="perf-result">
+                <p>전년 대비 <b>18.7% 증가</b><br/>전월 대비 <b>21.4% 증가</b></p>
+              </div>
             </div>
+
+          </div>
+
+          <!-- 요약 -->
+          <div class="perf-summary">
+            <span class="perf-summary-icon">💡</span>
+            <ul>
+              <li>방문자당 페이지뷰 수 증가를 통해, <b>사용자에게 유의미한 콘텐츠를 배치</b>한 것을 추측할 수 있음.</li>
+              <li>평균 체류시간 증가를 통해, <b>사용자에게 흥미로운 콘텐츠가 늘어남</b>을 추측할 수 있음.</li>
+              <li>전환율 증가를 통해, <b>사이트 내 상품 노출이 효과적으로 진행</b>된 것을 추측할 수 있음.</li>
+            </ul>
           </div>
         </div>
 
@@ -1736,6 +2438,30 @@
           <span class="role-tag">Beusable 분석</span>
           <span class="role-tag">QA</span>
           <span class="role-tag">AS-IS/TO-BE 정의</span>
+        </div>
+
+        <!-- 산출물 이미지 갤러리 -->
+        <div class="detail-section" style="margin-top:2rem;">
+          <button class="section-toggle" aria-expanded="false">
+            <span class="section-toggle-title">산출물</span>
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="section-panel">
+          <div class="output-gallery">
+            <div class="gallery-item" onclick="openLightbox(this)">
+              <img src="images/p3-1.jpg" alt="데이터 지표 보고서 및 개편안" loading="lazy" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="gallery-caption">데이터 지표 보고서 및 개편안</div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+              <img src="images/p3-2.jpg" alt="화면설계서" loading="lazy" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="gallery-caption">화면설계서</div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+              <img src="images/p3-3.jpg" alt="FO화면" loading="lazy" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="gallery-caption">FO 화면</div>
+            </div>
+          </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1759,6 +2485,11 @@
   </div>
 </section>
 
+<!-- CLOSING -->
+<section style="background: linear-gradient(135deg, #0d1b2a 0%, #1b2d42 100%); padding: 64px 5%; text-align: center;">
+  <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: var(--white); letter-spacing: -0.01em; margin: 0;">감사합니다 😃</h2>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-name">노하우 · Roh Hawoo</div>
@@ -1766,7 +2497,7 @@
     <a href="mailto:hawoo124@naver.com">hawoo124@naver.com</a> &nbsp;·&nbsp;
     <a href="tel:01076557959">010-7655-7959</a>
   </div>
-  <div class="footer-copy">PM Portfolio 2025 · Know-how</div>
+  <div class="footer-copy">노하우 PM Portfolio 2026</div>
 </footer>
 
 <script>
@@ -1812,6 +2543,15 @@
         btn.setAttribute('aria-expanded', 'true');
         btn.nextElementSibling.classList.add('open');
       }
+    });
+  });
+
+  // Section toggle (페르소나 등)
+  document.querySelectorAll('.section-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      btn.nextElementSibling.classList.toggle('open', !isOpen);
     });
   });
 
